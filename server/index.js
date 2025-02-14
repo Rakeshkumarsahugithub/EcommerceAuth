@@ -19,10 +19,8 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-  origin: [
-    "http://localhost:5173",  // Allow localhost (for local dev)
-    "https://ecommercedashboard-1.onrender.com"  // Allow frontend URL in production
-  ],
+  origin: 
+    "https://ecommercedashboard-1.onrender.com"  // Allow frontend URL in production,
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization']
@@ -35,9 +33,7 @@ app.use(passport.initialize());
 passport.use(new GoogleStrategy({
   clientID: process.env.GOOGLE_CLIENT_ID,
   clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-   callbackURL: process.env.NODE_ENV === 'production' ? 
-               "https://ecommercedashboard-rshy.onrender.com/auth/google/callback" :
-               "http://localhost:5001/auth/google/callback"  // Use local URL for dev
+   callbackURL: "https://ecommercedashboard-rshy.onrender.com/auth/google/callback"
 },
 async (accessToken, refreshToken, profile, done) => {
   try {
