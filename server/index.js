@@ -196,7 +196,7 @@ app.get('/auth/google', passport.authenticate('google', {
 
 app.get('/auth/google/callback',
   passport.authenticate('google', {
-    failureRedirect: 'http://localhost:5173/login',
+    failureRedirect: 'https://ecommercedashboard-1.onrender.com/login',
     session: false
   }),
   (req, res) => {
@@ -208,7 +208,7 @@ app.get('/auth/google/callback',
       sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax'
     });
 
-    res.redirect('http://localhost:5173/home');
+    res.redirect('https://ecommercedashboard-1.onrender.com/home');
   }
 );
 
@@ -230,7 +230,7 @@ app.post('/auth/forgot-password', async (req, res) => {
       from: process.env.EMAIL,
       to: email,
       subject: 'Reset Password',
-      text: `Reset your password here: http://localhost:5173/reset-password/${token}`
+      text: `Reset your password here: https://ecommercedashboard-1.onrender.com/reset-password/${token}`
     });
 
     res.json({ message: "Email sent" });
