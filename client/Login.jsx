@@ -18,7 +18,7 @@ const Login = () => {
       const payload = { email, password, otp }; // Always include OTP
 
       const response = await axios.post(
-        'http://localhost:5001/auth/login',
+        'https://ecommercedashboard-rshy.onrender.com/auth/login',
         payload,
         { withCredentials: true }
       );
@@ -45,7 +45,7 @@ const Login = () => {
   // Handle OTP request
   const handleSendOTP = async () => {
     try {
-      const response = await axios.post('http://localhost:5001/auth/send-otp', { email });
+      const response = await axios.post('https://ecommercedashboard-rshy.onrender.com/auth/send-otp', { email });
       if (response.data.message === 'OTP sent successfully') {
         setIsOTPRequested(true); // Show OTP input field
         setError(''); // Clear any previous errors
@@ -59,7 +59,7 @@ const Login = () => {
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const response = await axios.get('http://localhost:5001/auth/check', {
+        const response = await axios.get('https://ecommercedashboard-rshy.onrender.com/auth/check', {
           withCredentials: true
         });
         if (response.data.authenticated) {
@@ -73,7 +73,7 @@ const Login = () => {
   }, [navigate]);
 
   const handleGoogleLogin = () => {
-    window.location.href = 'http://localhost:5001/auth/google';
+    window.location.href = 'https://ecommercedashboard-rshy.onrender.com/auth/google';
   };
 
   return (
