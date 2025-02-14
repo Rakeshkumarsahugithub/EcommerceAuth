@@ -1,25 +1,4 @@
 
-//   const handleLogout = async () => {
-//     try {
-//       // Call backend to clear cookies (if implemented)
-//       await axios.post('http://localhost:5001/auth/logout', {}, { withCredentials: true });
-
-//       // Redirect to login page
-//       navigate('/login');
-//     } catch (error) {
-//       console.error('Error during logout:', error);
-//       alert('Failed to log out. Please try again.');
-//     }
-//   };
-
-//   return (
-//     <div>
-//       <h1>Welcome to the Home Page</h1>
-//       <button onClick={handleLogout}>Logout</button>
-//     </div>
-//   );
-// };
- // Mock user data - replace with actual data from your backend
  import React, { useState, useEffect } from 'react';
  import { useNavigate } from 'react-router-dom';
  import axios from 'axios';
@@ -44,7 +23,7 @@
    // Logout functionality
    const handleLogout = async () => {
      try {
-       await axios.post('http://localhost:5001/auth/logout', {}, { 
+       await axios.post('https://ecommercedashboard-rshy.onrender.com//auth/logout', {}, { 
          withCredentials: true,
          validateStatus: (status) => status < 500
        });
@@ -59,7 +38,7 @@
    useEffect(() => {
      const fetchUserData = async () => {
        try {
-         const response = await axios.get('http://localhost:5001/api/user', {
+         const response = await axios.get('https://ecommercedashboard-rshy.onrender.com//api/user', {
            withCredentials: true
          });
          setUserData(response.data);
