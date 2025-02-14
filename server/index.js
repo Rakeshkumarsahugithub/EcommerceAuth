@@ -35,7 +35,7 @@ app.use(passport.initialize());
 passport.use(new GoogleStrategy({
   clientID: process.env.GOOGLE_CLIENT_ID,
   clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-  callbackURL: "http://localhost:5001/auth/google/callback"
+  callbackURL: "https://ecommercedashboard-1.onrender.com/auth/google/callback"
 },
 async (accessToken, refreshToken, profile, done) => {
   try {
@@ -189,12 +189,12 @@ app.get('/api/user', async (req, res) => {
   }
 });
 
-app.get('https://ecommercedashboard-rshy.onrender.com/auth/google', passport.authenticate('google', {
+app.get('/auth/google', passport.authenticate('google', {
   scope: ['profile', 'email'],
   session: false
 }));
 
-app.get('https://ecommercedashboard-rshy.onrender.com/auth/google/callback',
+app.get('/auth/google/callback',
   passport.authenticate('google', {
     failureRedirect: 'http://localhost:5173/login',
     session: false
