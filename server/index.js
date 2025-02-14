@@ -35,7 +35,9 @@ app.use(passport.initialize());
 passport.use(new GoogleStrategy({
   clientID: process.env.GOOGLE_CLIENT_ID,
   clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-  callbackURL: "https://ecommercedashboard-rshy.onrender.com/auth/google/callback"
+   callbackURL: process.env.NODE_ENV === 'production' ? 
+               "https://ecommercedashboard-rshy.onrender.com/auth/google/callback" :
+               "http://localhost:5001/auth/google/callback"  // Use local URL for dev
 },
 async (accessToken, refreshToken, profile, done) => {
   try {
