@@ -194,7 +194,7 @@ app.get('/auth/google', passport.authenticate('google', {
   session: false
 }));
 
-app.get('/auth/google/callback',
+app.get('https://ecommercedashboard-rshy.onrender.com/auth/google/callback',
   passport.authenticate('google', {
     failureRedirect: 'http://localhost:5173/login',
     session: false
