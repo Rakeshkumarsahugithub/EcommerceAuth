@@ -189,7 +189,7 @@ app.get('/api/user', async (req, res) => {
   }
 });
 
-app.get('/auth/google', passport.authenticate('google', {
+app.get('https://ecommercedashboard-rshy.onrender.com/auth/google', passport.authenticate('google', {
   scope: ['profile', 'email'],
   session: false
 }));
