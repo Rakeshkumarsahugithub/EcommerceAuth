@@ -12,7 +12,7 @@ const ForgotPassword = () => {
         e.preventDefault();
     
         try {
-            const response = await axios.post('http://localhost:5001/auth/forgot-password', { email });
+            const response = await axios.post('https://ecommercedashboard-rshy.onrender.com/auth/forgot-password', { email });
             setEmail('');
             alert(response.data.message); // Show the message from the response
             navigate('/login');
