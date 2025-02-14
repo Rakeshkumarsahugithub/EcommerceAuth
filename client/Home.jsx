@@ -23,7 +23,7 @@
    // Logout functionality
    const handleLogout = async () => {
      try {
-       await axios.post('https://ecommercedashboard-rshy.onrender.com//auth/logout', {}, { 
+       await axios.post('https://ecommercedashboard-rshy.onrender.com/auth/logout', {}, { 
          withCredentials: true,
          validateStatus: (status) => status < 500
        });
@@ -38,7 +38,7 @@
    useEffect(() => {
      const fetchUserData = async () => {
        try {
-         const response = await axios.get('https://ecommercedashboard-rshy.onrender.com//api/user', {
+         const response = await axios.get('https://ecommercedashboard-rshy.onrender.com/api/user', {
            withCredentials: true
          });
          setUserData(response.data);
