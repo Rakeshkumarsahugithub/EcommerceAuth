@@ -22,7 +22,7 @@ const Signup = () => {
     }
 
     try {
-      const response = await axios.post('http://localhost:5001/auth/signup', { username, email, password });
+      const response = await axios.post('https://ecommercedashboard-rshy.onrender.com/auth/signup', { username, email, password });
       
       setUsername('');
       setEmail('');
