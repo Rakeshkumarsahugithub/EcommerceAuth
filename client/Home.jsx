@@ -59,7 +59,7 @@
    return (
      <div className="profile-container">
        <div className="profile-header">
-       <img src= "programmer.png"
+       <img src= "https://img.freepik.com/premium-photo/computer-pro…logo-line-art-generative-ai_934475-6477.jpg?w=360"
        
   alt="Profile" 
   className="profile-image" 
