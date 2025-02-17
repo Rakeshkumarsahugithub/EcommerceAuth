@@ -241,17 +241,45 @@ app.post('/auth/forgot-password', async (req, res) => {
   }
 });
 
+// app.post('/auth/reset-password/:token', async (req, res) => {
+//   const token = req.params.token;
+//   const { password } = req.body;
+
+//   try {
+//     const decoded = jwt.verify(token, process.env.JWT_SECRET);
+//     const hashedPassword = await bcrypt.hash(password, 10);
+//     await User.findByIdAndUpdate(decoded.id, { password: hashedPassword });
+
+//     res.json({ message: "Password updated successfully" });
+//   } catch (error) {
+//     res.status(400).json({ message: 'Invalid or expired token' });
+//   }
+// });
+
 app.post('/auth/reset-password/:token', async (req, res) => {
-  const token = req.params.token;
-  const { password } = req.body;
+  const token = req.params.token;  // Get token from the URL
+  const { password } = req.body;   // Get new password from request body
 
   try {
+    // Verify the token using JWT_SECRET
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    
+    // Find the user using the ID in the token
+    const user = await User.findById(decoded.id);
+    if (!user) {
+      return res.status(400).json({ message: 'User not found' });
+    }
+
+    // Hash the new password before saving it
     const hashedPassword = await bcrypt.hash(password, 10);
+    
+    // Update the user's password
     await User.findByIdAndUpdate(decoded.id, { password: hashedPassword });
 
+    // Send success response
     res.json({ message: "Password updated successfully" });
   } catch (error) {
+    console.error('Error resetting password:', error);
     res.status(400).json({ message: 'Invalid or expired token' });
   }
 });
