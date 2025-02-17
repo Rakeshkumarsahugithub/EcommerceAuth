@@ -21,7 +21,7 @@ app.use(cookieParser());
 app.use(cors({
   origin: [
     "https://rakeshsecure-authentication.onrender.com",
-    "https://ecomcrud-dashboard-1.onrender.com",
+    "https://ecommercedashboard-1.onrender.com",
     ]// Allow frontend URL in production,
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
