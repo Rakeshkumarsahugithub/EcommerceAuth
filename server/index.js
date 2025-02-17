@@ -20,13 +20,15 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
   origin: [
-    "https://rakeshsecure-authentication.onrender.com",
-    "https://ecommercedashboard-1.onrender.com",
-    ]// Allow frontend URL in production,
-  credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    "https://rakeshsecure-authentication.onrender.com",  // Frontend 1
+    "https://ecommercedashboard-1.onrender.com",         // Frontend 2
+  ],
+  credentials: true, // Allow cookies and headers
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
+
+app.options('*', cors());  // Handle preflight (OPTIONS) for all routes
 
 // Initialize Passport
 app.use(passport.initialize());
