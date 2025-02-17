@@ -21,7 +21,6 @@ app.use(cookieParser());
 app.use(cors({
   origin: [
     "https://rakeshsecure-authentication.onrender.com",  // Frontend 1
-    "https://ecommercedashboard-1.onrender.com",         // Frontend 2
   ],
   credentials: true, // Allow cookies and headers
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
@@ -198,7 +197,7 @@ app.get('/auth/google', passport.authenticate('google', {
 
 app.get('/auth/google/callback',
   passport.authenticate('google', {
-    failureRedirect: 'https://ecommercedashboard-1.onrender.com/login',
+    failureRedirect: 'https://rakeshsecure-authentication.onrender.com/login',
     session: false
   }),
   (req, res) => {
@@ -210,7 +209,7 @@ app.get('/auth/google/callback',
       sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax'
     });
 
-    res.redirect('https://ecommercedashboard-1.onrender.com/home');
+    res.redirect('https://rakeshsecure-authentication.onrender.com/home');
   }
 );
 
@@ -232,7 +231,7 @@ app.post('/auth/forgot-password', async (req, res) => {
       from: process.env.EMAIL,
       to: email,
       subject: 'Reset Password',
-      text: `Reset your password here: https://ecommercedashboard-1.onrender.com/reset-password/${token}`
+      text: `Reset your password here: https://rakeshsecure-authentication.onrender.com/reset-password/${token}`
     });
 
     res.json({ message: "Email sent" });
