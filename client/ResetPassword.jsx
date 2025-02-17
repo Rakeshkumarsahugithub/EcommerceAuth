@@ -13,7 +13,7 @@ const ResetPassword = () => {
       e.preventDefault();
   
       try {
-        const response = await axios.post('http://localhost:5001/auth/reset-password/'+token, { password });
+        const response = await axios.post('https://ecommercedashboard-rshy.onrender.com/auth/reset-password/'+token, { password });
         setPassword('');
        
         navigate('/login');
