@@ -10,6 +10,12 @@
 
 ### 📝 Description:
 Engineered a secure and scalable authentication system integrating user registration, login, and password recovery functionalities.
+### 🚀 Demo:
+You can access the live demo of the authentication system here:
+	
+  <img src="https://www.nielit.gov.in/sites/default/files/kurukshetra/click-here-2.gif" width="100" />[Live Demo](https://rakeshsecure-authentication.onrender.com/)
+
+---
 
 ### 💻 Technologies Used:
 - **Node.js**: JavaScript runtime for building backend APIs.
@@ -50,12 +56,6 @@ Feel free to reach out for any questions or suggestions at [sahurks1234@gmail.co
 
 ---
 
-### 🚀 Demo:
-You can access the live demo of the authentication system here:
-
-[Live Demo](https://rakeshsecure-authentication.onrender.com/)
-
----
 
 
 
