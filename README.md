@@ -1,7 +1,7 @@
 # Authentication System for Secure Web Applications
 
 # 🚀 Project 2: Authentication System for Secure Web Applications
-<img src="https://github.com/user-attachments/assets/f6b8ca51-1bcf-4209-8599-156370f406f1" width="700" height="300" />
+<img src="https://github.com/user-attachments/assets/f6b8ca51-1bcf-4209-8599-156370f406f1" width="800" height="400" />
 
 ![GitHub Icon](https://img.shields.io/badge/github-Project%20Repo-blue?style=flat-square&logo=github)
 ![Node.js](https://img.shields.io/badge/Node.js-12.x-339933?style=flat-square&logo=node.js)
