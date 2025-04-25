@@ -204,8 +204,8 @@ app.get('/auth/google/callback',
 
     res.cookie('token', token, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
-      sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax'
+      secure: true,
+      sameSite: 'none'
     });
 
     res.redirect('https://rakeshsecure-authentication.onrender.com/home');
@@ -285,8 +285,8 @@ app.post('/auth/reset-password/:token', async (req, res) => {
 app.post('/auth/logout', (req, res) => {
   res.clearCookie('token', {
     httpOnly: true,
-    secure: process.env.NODE_ENV === 'production',
-    sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax'
+    secure: true,
+    sameSite: 'none'
   });
   res.json({ message: 'Logged out successfully' });
 });
