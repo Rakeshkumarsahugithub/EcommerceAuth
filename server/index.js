@@ -16,18 +16,17 @@ dotenv.config();
 
 // Create Express app
 const app = express();
-app.use(express.json());
 app.use(cookieParser());
-app.use(cors({
-  origin: [
-    "https://rakeshsecure-authentication.onrender.com",  // Frontend 1
-  ],
-  credentials: true, // Allow cookies and headers
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization']
-}));
+const corsOptions = {
+  origin: ['http://localhost:5173', 'https://rakeshsecure-authentication.onrender.com'],
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true,
+  optionsSuccessStatus: 200
+};
 
-app.options('*', cors());  // Handle preflight (OPTIONS) for all routes
+app.use(cors(corsOptions));
+app.use(express.json());
 
 // Initialize Passport
 app.use(passport.initialize());
